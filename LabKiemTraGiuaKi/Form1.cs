@@ -64,7 +64,7 @@ namespace LabKiemTraGiuaKi
                 ListViewItem i = new ListViewItem(st.ID);
                 i.SubItems.Add(st.LastName);
                 i.SubItems.Add(st.FirstName);
-                string sex = st.Sex == "" ? "Nam" : st.Sex;
+                string sex = st.Sex;
                 i.SubItems.Add(sex);
                 i.SubItems.Add(st.BirthDay.ToString("dd/MM/yyyy"));
                 i.SubItems.Add(st.Mobile);
@@ -177,11 +177,21 @@ namespace LabKiemTraGiuaKi
             {
                 ListViewItem item = lvStudentList.SelectedItems[0];
                 AddForm form = new AddForm(mn);
-                form.Student = _students.Find(x => x.ID == item.SubItems[0].Text);
+                if(_selectNode!="")
+                {
+                    form.Student = mn.StudentsOfGrade(_selectParent, _selectNode).Find(x => x.ID == item.SubItems[0].Text);
+                }
+                else
+                {
+                    form.Student = mn.Students(_selectParent).Find(x => x.ID == item.SubItems[0].Text);
+                }
                 form.ShowDialog();
                 if (form.DialogResult == DialogResult.OK)
                 {
+                    _students = mn.StudentsOfGrade(form.Student.Department, form.Student.Grade);
                     LoadStudentList(_students);
+                    _selectParent = form.Student.Department;
+                    _selectNode = form.Student.Grade;
                 }
             }
         }

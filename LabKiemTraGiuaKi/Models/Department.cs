@@ -22,6 +22,7 @@ namespace LabKiemTraGiuaKi.Models
         public void AddStudentToGrade(Student student)
         {
             int i = StudentsOfDepatment.FindIndex(x => x.ID == student.ID);
+            if (i != -1) return;
             StudentsOfDepatment.Add(student);
             int j = Grades.FindIndex(x => x.Name == student.Grade);
             if (j == -1)

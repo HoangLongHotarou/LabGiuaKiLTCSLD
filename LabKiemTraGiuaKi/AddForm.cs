@@ -15,6 +15,7 @@ namespace LabKiemTraGiuaKi
     {
         private Management _mg;
         private bool _isUpdate;
+        private string department,grade;
 
         public Student Student { get; set; }
 
@@ -80,6 +81,10 @@ namespace LabKiemTraGiuaKi
 
         public void upStudent()
         {
+            // get the old Dep,Grd
+            department = Student.Department;
+            grade = Student.Grade;
+            // update Student;
             Student.ID = txtID.Text.Trim();
             Student.FirstName = txtFirstName.Text.Trim();
             Student.LastName = txtLastName.Text.Trim();
@@ -122,7 +127,7 @@ namespace LabKiemTraGiuaKi
 
         private void ShowUpdateDialog()
         {
-            if (_mg.UpdateStudent(Student))
+            if (_mg.UpdateStudent(Student,department,grade))
             {
                 MessageBox.Show("Đã cập nhật thành công", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
@@ -138,7 +143,6 @@ namespace LabKiemTraGiuaKi
             
             if (_isUpdate == true)
             {
-                //GetStudent();
                 upStudent();
                 ShowUpdateDialog();
             }

@@ -14,7 +14,7 @@ namespace LabKiemTraGiuaKi.IO
         {
             using (var workbook = new XLWorkbook())
             {
-                var wsDetailedData = workbook.AddWorksheet("data"); //creates the worksheet with sheetname 'data'
+                var wsDetailedData = workbook.AddWorksheet(filePath.Split('\\')[1]); //creates the worksheet with sheetname 'data'
                 wsDetailedData.Cell(1, 1).InsertTable(students); //inserts the data to cell A1 including default column name
                 workbook.SaveAs(filePath); //saves the workbook
             }

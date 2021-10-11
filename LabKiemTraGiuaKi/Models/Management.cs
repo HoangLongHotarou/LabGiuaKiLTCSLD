@@ -56,14 +56,29 @@ namespace LabKiemTraGiuaKi.Models
             return false;
         }
 
-        public bool UpdateStudent(Student student)
+        public bool UpdateStudent(Student student,string department, string grade)
         {
-            var i = Students(student.Department).FindIndex(x => x.ID == student.ID);
+            var i = Students(department).FindIndex(x => x.ID == student.ID);
             if (i == -1)
             {
                 return false;
             }
-            Students(student.Department)[i] = student;
+            if (student.Department != department)
+            {
+                Students(department).RemoveAll(x => x.ID == student.ID);
+                Students(student.Department).Add(student);
+                StudentsOfGrade(department, grade).RemoveAll(x=>x.ID==student.ID);
+                StudentsOfGrade(student.Department, student.Grade).Add(student);
+            }else if(student.Grade != grade)
+            {
+                Students(department)[i] = student;
+                StudentsOfGrade(department, grade).RemoveAll(x => x.ID == student.ID);
+                StudentsOfGrade(department, student.Grade).Add(student);
+            }
+            else
+            {
+                Students(department)[i] = student;
+            }
             _IOStudent.Save(_departments);
             return true;
         }
