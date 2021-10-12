@@ -28,7 +28,7 @@ namespace LabKiemTraGiuaKi.Models
             Department = str[4].Trim();
             Mobile = "";
             Sex = "Nam";
-            BirthDay = DateTime.ParseExact("01/01/1900", "dd/MM/yyyy", null);
+            BirthDay = DateTime.ParseExact("01/01/1901", "dd/MM/yyyy", null);
             if (str.Length > 5)
             {
                 Sex = str[5].Trim();

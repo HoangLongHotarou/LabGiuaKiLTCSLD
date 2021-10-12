@@ -49,6 +49,9 @@ namespace LabKiemTraGiuaKi
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sắpXếpTheoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbInfor = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,9 +59,6 @@ namespace LabKiemTraGiuaKi
             this.saveJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveEXCELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sắpXếpTheoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mSSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -112,10 +112,10 @@ namespace LabKiemTraGiuaKi
             this.rbtnName.AutoSize = true;
             this.rbtnName.Location = new System.Drawing.Point(252, 19);
             this.rbtnName.Name = "rbtnName";
-            this.rbtnName.Size = new System.Drawing.Size(57, 17);
+            this.rbtnName.Size = new System.Drawing.Size(44, 17);
             this.rbtnName.TabIndex = 5;
             this.rbtnName.TabStop = true;
-            this.rbtnName.Text = "Họ tên";
+            this.rbtnName.Text = "Tên";
             this.rbtnName.UseVisualStyleBackColor = true;
             this.rbtnName.CheckedChanged += new System.EventHandler(this.rbtnName_CheckedChanged);
             // 
@@ -203,28 +203,51 @@ namespace LabKiemTraGiuaKi
             this.loadToolStripMenuItem,
             this.sắpXếpTheoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 92);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.addToolStripMenuItem.Text = "Thêm ";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.removeToolStripMenuItem.Text = "Xóa";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.loadToolStripMenuItem.Text = "Load ";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // sắpXếpTheoToolStripMenuItem
+            // 
+            this.sắpXếpTheoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mSSVToolStripMenuItem,
+            this.tênToolStripMenuItem});
+            this.sắpXếpTheoToolStripMenuItem.Name = "sắpXếpTheoToolStripMenuItem";
+            this.sắpXếpTheoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.sắpXếpTheoToolStripMenuItem.Text = "Sắp xếp theo";
+            // 
+            // mSSVToolStripMenuItem
+            // 
+            this.mSSVToolStripMenuItem.Name = "mSSVToolStripMenuItem";
+            this.mSSVToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.mSSVToolStripMenuItem.Text = "MSSV";
+            this.mSSVToolStripMenuItem.Click += new System.EventHandler(this.mSSVSortToolStripMenuItem_Click);
+            // 
+            // tênToolStripMenuItem
+            // 
+            this.tênToolStripMenuItem.Name = "tênToolStripMenuItem";
+            this.tênToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.tênToolStripMenuItem.Text = "Tên";
+            this.tênToolStripMenuItem.Click += new System.EventHandler(this.nameSortToolStripMenuItem_Click);
             // 
             // lbInfor
             // 
@@ -281,29 +304,6 @@ namespace LabKiemTraGiuaKi
             this.inToolStripMenuItem.Name = "inToolStripMenuItem";
             this.inToolStripMenuItem.Size = new System.Drawing.Size(29, 20);
             this.inToolStripMenuItem.Text = "In";
-            // 
-            // sắpXếpTheoToolStripMenuItem
-            // 
-            this.sắpXếpTheoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mSSVToolStripMenuItem,
-            this.tênToolStripMenuItem});
-            this.sắpXếpTheoToolStripMenuItem.Name = "sắpXếpTheoToolStripMenuItem";
-            this.sắpXếpTheoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sắpXếpTheoToolStripMenuItem.Text = "Sắp xếp theo";
-            // 
-            // mSSVToolStripMenuItem
-            // 
-            this.mSSVToolStripMenuItem.Name = "mSSVToolStripMenuItem";
-            this.mSSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mSSVToolStripMenuItem.Text = "MSSV";
-            this.mSSVToolStripMenuItem.Click += new System.EventHandler(this.mSSVSortToolStripMenuItem_Click);
-            // 
-            // tênToolStripMenuItem
-            // 
-            this.tênToolStripMenuItem.Name = "tênToolStripMenuItem";
-            this.tênToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tênToolStripMenuItem.Text = "Tên";
-            this.tênToolStripMenuItem.Click += new System.EventHandler(this.nameSortToolStripMenuItem_Click);
             // 
             // Form1
             // 

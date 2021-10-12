@@ -69,6 +69,7 @@ namespace LabKiemTraGiuaKi
             // 
             // cbxClass
             // 
+            this.cbxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxClass.FormattingEnabled = true;
             this.cbxClass.Items.AddRange(new object[] {
             "CTK44",
@@ -207,6 +208,7 @@ namespace LabKiemTraGiuaKi
             // 
             // cbxDepartment
             // 
+            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepartment.FormattingEnabled = true;
             this.cbxDepartment.Location = new System.Drawing.Point(389, 135);
             this.cbxDepartment.Name = "cbxDepartment";
